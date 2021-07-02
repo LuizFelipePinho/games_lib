@@ -1,14 +1,10 @@
-from flask import (Flask, Blueprint, render_template)
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template
 
 app = Flask(__name__)
-bp = Blueprint('app', __name__)
 
-#Database
-user='okkmzdmn'
-password='ZvFIeK9-lrRFH22s3WohwW9oDvlCPV5Q'
-host='tuffi.db.elephantsql.com'
-database='okkmzdmn'
+@app.route("/")
+def home():
+    return render_template("index.html")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{user}:{password}@{host}/{database}'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+if __name__ == "__main__":
+    app.run(debug=True)
