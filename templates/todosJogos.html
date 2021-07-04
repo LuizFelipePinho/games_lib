@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/reset.css">
+    <link rel="stylesheet" href="/static/styles.css">
+
+    <title>Games Lib</title>
+</head>
+<body>
+
+   {% include 'header.html' %} 
+
+        <table class="tabela">
+            <tr class="headerTabela">
+                <td class="item">Id</td>
+                <td class="item">Titulo</td>
+                <td class="item">Plataforma</td>
+                <td class="item">Genero</td>
+                <td class="item">Imagem do Jogo</td>
+
+            </tr>
+
+            <tbody>
+                <!-- Para CADA filme dentro da minha lista de filmes que estão vindo do app.py -->
+                {% for jogo in listaJogos %}
+                <tr>
+                    <td class="item">{{ jogo.id }}</td>
+                    <td class="item">{{jogo.titulo}}</td>
+                    <td class="item">{{jogo.plataforma}}</td>
+                    <td class="item">{{jogo.genero}}</td>
+                    <td class="item"> <img src="{{jogo.img}}" alt="{{jogo.titulo}}" class="capaJogo"></td>
+
+
+                   <!-- acho que isso vai servir pra algo
+                    <td>
+                    <a href="/read/{{jogo.id}}" class="botao">Visualizar</a>  pra q serve esse id do jogo aqui???
+                    </td>
+                -->
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+
+    
+
+
+
+
+</body>
+</html>

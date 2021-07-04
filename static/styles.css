@@ -44,3 +44,37 @@
 .cabecalho ul li {
     margin-right: 40px;
 }
+
+a {
+    text-decoration: none;
+}
+
+
+
+.tabela {
+    border: black 2px solid;
+    width: 70em;
+    margin: auto;
+    margin-top: 5em;
+}
+
+.headerTabela {
+    border: black 2px solid;
+    background-color: yellow;
+    height: 2em;
+    text-align: center;
+    font-size: 1.4em
+
+}
+
+.item{
+    border: black 2px solid;
+    height: 20px;
+    text-align: center;
+}
+
+.capaJogo {
+    width: 100px;
+    height: 100px;
+}
+
