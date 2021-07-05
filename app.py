@@ -47,7 +47,26 @@ class Jogos(db.Model):
     return Jogos.query.where(Jogos.plataforma == "switch") # vai selecionar somete da plataforma playstation
 
 
+  @staticmethod
+  def read_single(jogo_id):
+    # SELECT * from filmes where id = <id_de_um_filme>;
+    return Jogos.query.get(jogo_id)
+  
 
+  # insere jogo
+  def save(self):
+    db.session.add(self) # estamos adicionandno as informações passadas no fomr (nome, url) para o banco de dados(utilizando sessão)
+    db.session.commit()
+
+  def update(self, new_data):
+    self.titulo = new_data.titulo
+    self.plataforma = new_data.plataforma
+    self.genero = new_data.genero
+    self.img = new_data.img
+    self.save()
+
+
+  
 
 
 
@@ -79,6 +98,28 @@ def jogos_switch():
   jogos = Jogos.todos_switch() # aqui ela vai armazenar o retorno do metodo todos_switch que está dentro da class Jogos
 
   return render_template('todosJogos.html', listaJogos=jogos); # além de renderizar a o html especifico, ele tbm cria uma variavel para ser usadada no html(uma lista com os dados em questão)
+
+
+
+
+# rota de update
+@bp.route('/updateJogo', methods=('GET', 'POST'))
+def update():
+  sucesso = None
+  jogo = Jogos.read_single(1) # aqui n pode ser um, tem q arrumar alguma forma para o usuario conseguir selecionar o jogo q ele quer editar
+
+  if request.method == 'POST':
+    form = request.form
+    new_data = Jogos(form['titulo'], form['plataforma'], form['genero'], form['img'])
+    
+    jogo.update(new_data)
+
+    sucesso = True
+
+  return render_template('updateJogo.html', jogo = jogo, sucesso = sucesso ) 
+
+    
+
 
 
 

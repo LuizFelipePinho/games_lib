@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/reset.css">
+    <link rel="stylesheet" href="/static/styles.css">
+
+    <title>Games Lib</title>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="bloco">
+        <h2>Editar Registro</h2>
+    </div>
+
+    {% if sucesso %}
+
+    <div class="bloco sucesso">
+    <p> Registro editado com sucesso! </p>        
+    </div>
+
+    {% endif %}
+
+
+
+    <div class="bloco">
+        <form class="form" method="POST"> <!-- com o postVamos enviar informações para o bd-->
+            
+            <div class="bloco form_input">
+                <label for="titulo">Titulo: </label>
+                <input type="text" id="titulo" name="titulo" value="{{jogo.titulo}}"> <!-- o id do input que liga com o for da label-->
+
+            </div>
+
+            <div class="bloco form_input">
+                <label for="plataforma">Plataforma: </label>
+                <input type="text" id="plataforma" name="plataforma" value="{{jogo.plataforma}}"> <!-- o id do input que liga com o for da label-->
+
+            </div>
+
+            <div class="bloco form_input">
+                <label for="genero">Genero: </label>
+                <input type="text" id="genero" name="genero" value="{{jogo.genero}}"> <!-- o id do input que liga com o for da label-->
+
+            </div>
+
+
+            <div class="bloco form_input">
+                <label for="img">URL da imagem: </label>
+                <input type="text" id="img" name="img" value="{{jogo.img}}"> <!-- o id do input que liga com o for da label-->
+
+            </div>
+
+
+            <div class="bloco form_input">
+                <input type="submit" class="botao" value="Enviar">
+
+            </div>
+
+
+        </form>
+    
+</body>
+</html>
