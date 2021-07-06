@@ -20,6 +20,8 @@
                 <td class="item">Plataforma</td>
                 <td class="item">Genero</td>
                 <td class="item">Imagem do Jogo</td>
+                <td class="item">Ações</td>
+
 
             </tr>
 
@@ -32,6 +34,7 @@
                     <td class="item">{{jogo.plataforma}}</td>
                     <td class="item">{{jogo.genero}}</td>
                     <td class="item"> <img src="{{jogo.img}}" alt="{{jogo.titulo}}" class="capaJogo"></td>
+                    <td class="item"><a href="/updateJogo/{{jogo.id}}">Alterar</a></td>
 
 
                    <!-- acho que isso vai servir pra algo
@@ -45,10 +48,7 @@
             
         </table>
 
-        <div>
-           <a href="/updateJogo"><button type="submit"> Alterar registro</button></a> 
-        </div>
-
+     
     
 
 

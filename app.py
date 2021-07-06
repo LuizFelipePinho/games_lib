@@ -103,10 +103,10 @@ def jogos_switch():
 
 
 # rota de update
-@bp.route('/updateJogo', methods=('GET', 'POST'))
-def update():
+@bp.route('/updateJogo/<id_jogo>', methods=('GET', 'POST'))
+def update(id_jogo):
   sucesso = None
-  jogo = Jogos.read_single(1) # aqui n pode ser um, tem q arrumar alguma forma para o usuario conseguir selecionar o jogo q ele quer editar
+  jogo = Jogos.read_single(id_jogo) # aqui n pode ser um, tem q arrumar alguma forma para o usuario conseguir selecionar o jogo q ele quer editar
 
   if request.method == 'POST':
     form = request.form
