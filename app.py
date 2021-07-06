@@ -65,6 +65,10 @@ class Jogos(db.Model):
     self.img = new_data.img
     self.save()
 
+  def delete(self):
+    db.session.delete(self) # estamos removendo as infomações de um jogo do banco de dados
+    db.session.commit()
+
 
   
 
@@ -120,6 +124,18 @@ def update(id_jogo):
 
     
 
+
+#rota do delete (deletar)
+
+@bp.route('/deleteJogo/<filme_id>') # rota que realiza de fato a deleção do filme selecionado e mostra o html de sucesso
+def delete_confirmed(filme_id):
+
+  jogo = Jogos.read_single(filme_id)
+
+  if jogo:
+    jogo.delete()
+  
+  return render_template('index.html')
 
 
 
