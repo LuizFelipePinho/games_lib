@@ -21,7 +21,8 @@ class Jogos(db.Model):
   genero = db.Column(db.String(255), nullable = False)
   imagem_url = db.Column(db.String(255), nullable = False)
 
-  def __init__(self, nome_jogo, plataforma, genero, imagem_url):
+  def __init__(self, jogo_id, nome_jogo, plataforma, genero, imagem_url):
+    self.jogo_id = jogo_id
     self.nome_jogo = nome_jogo
     self.plataforma = plataforma
     self.genero = genero

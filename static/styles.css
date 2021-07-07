@@ -1,14 +1,4 @@
 
-
-body{
-    background-color: #b8860b;
-opacity: 1;
-background-image:  linear-gradient(135deg, #00008b 25%, transparent 25%), linear-gradient(225deg, #00008b 25%, transparent 25%), linear-gradient(45deg, #00008b 25%, transparent 25%), linear-gradient(315deg, #00008b 25%, #b8860b 25%);
-background-position:  12px 0, 12px 0, 0 0, 0 0;
-background-size: 24px 24px;
-background-repeat: repeat;
-}
-
 .container{
     margin: auto;
     display: flex;

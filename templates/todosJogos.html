@@ -29,9 +29,9 @@
                 <!-- Para CADA filme dentro da minha lista de filmes que estão vindo do app.py -->
                 {% for jogo in listaJogos %}
                 <tr>
-                    <td class="item">{{ jogo.id }}</td>
+                    <td class="item">{{ jogo.jogo_id }}</td>
                     <td class="item">{{jogo.nome_jogo}}</td>
-                    <!--- <td class="item">{{jogo.plataforma}}</td> -->
+                    <td class="item">{{jogo.plataforma}}</td>
                     <td class="item">{{jogo.genero}}</td>
                     <td class="item"> <img src="{{jogo.imagem_url}}" alt="{{jogo.nome_jogo}}" class="capaJogo"></td>
                     <td class="item">
