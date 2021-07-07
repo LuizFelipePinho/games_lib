@@ -99,7 +99,6 @@ def jogos_switch():
 def devs():
   return render_template("devs.html")
 
-
 # rota de update
 @bp.route('/updateJogo/<id_jogo>', methods=('GET', 'POST'))
 def update(id_jogo):
@@ -116,9 +115,6 @@ def update(id_jogo):
 
   return render_template('updateJogo.html', jogo = jogo, sucesso = sucesso ) 
 
-    
-
-
 #rota do delete (deletar)
 
 @bp.route('/deleteJogo/<jogo_id>') # rota que realiza de fato a deleção do jogo selecionado e mostra o html de sucesso
@@ -131,15 +127,18 @@ def delete_confirmed(jogo_id):
   
   return render_template('index.html')
 
-
-
-
-
-
-
+@bp.route('/create', methods=('GET', 'POST'))
+def create():
+    id_atribuido = None
+#Como o método utilizado no formulário é POST, pegamos os valores dos campos
+    if request.method == 'POST':
+        form = request.form
+        jogos = Jogos(form['nome'], form['imagem_url'])
+        jogos.save()
+        id_atribuido=jogos.id
+    return render_template('create.html', id_atribuido=id_atribuido)
 
 app.register_blueprint(bp)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
