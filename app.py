@@ -4,47 +4,46 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 bp = Blueprint('app', __name__)
 
-user= 'nosjncww'
-password= 'p8UBg9V0sxMKGWym1UAf03sHreI1SXUy'
+user= 'okkmzdmn'
+password= 'ZvFIeK9-lrRFH22s3WohwW9oDvlCPV5Q'
 host= 'tuffi.db.elephantsql.com'
-database= 'nosjncww'
+database= 'okkmzdmn'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{user}:{password}@{host}/{database}' 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-
 class Jogos(db.Model):
   id = db.Column(db.Integer, primary_key = True)
-  plataforma = db.Column(db.String(60), nullable = False)
-  titulo = db.Column(db.String(60), nullable = False)
-  genero = db.Column(db.String(60), nullable = False)
-  img = db.Column(db.String(120), nullable = False)
+  plataforma = db.Column(db.String(255), nullable = False)
+  nome_jogo = db.Column(db.String(255), nullable = False)
+  genero = db.Column(db.String(255), nullable = False)
+  imagem_url = db.Column(db.String(255), nullable = False)
 
-  def __init__(self, titulo, plataforma, genero, img):
-    self.titulo = titulo
+  def __init__(self, nome_jogo, plataforma, genero, imagem_url):
+    self.nome_jogo = nome_jogo
     self.plataforma = plataforma
     self.genero = genero
-    self.img = img
+    self.imagem_url = imagem_url
 
   @staticmethod 
   def todos_playstation():
     # SELECT * from filmes order by id asc;
     #return Jogos.query.order_by(Jogos.id.asc()).all()
-    return Jogos.query.where(Jogos.plataforma == "playstation") # vai selecionar somete da plataforma playstation
+    return Jogos.query.where(Jogos.plataforma == "Playstation") # vai selecionar somete da plataforma playstation
 
   @staticmethod 
   def todos_xbox():
     # SELECT * from filmes order by id asc;
     #return Jogos.query.order_by(Jogos.id.asc()).all()
-    return Jogos.query.where(Jogos.plataforma == "xbox") # vai selecionar somete da plataforma playstation
+    return Jogos.query.where(Jogos.plataforma in ('', 'Xbox')) # vai selecionar somete da plataforma playstation
 
   @staticmethod 
   def todos_switch():
     # SELECT * from filmes order by id asc;
     #return Jogos.query.order_by(Jogos.id.asc()).all()
-    return Jogos.query.where(Jogos.plataforma == "switch") # vai selecionar somete da plataforma playstation
+    return Jogos.query.where(Jogos.plataforma in ('', 'Nintendo Switch')) # vai selecionar somete da plataforma playstation
 
 
   @staticmethod
@@ -127,10 +126,10 @@ def update(id_jogo):
 
 #rota do delete (deletar)
 
-@bp.route('/deleteJogo/<filme_id>') # rota que realiza de fato a deleção do filme selecionado e mostra o html de sucesso
-def delete_confirmed(filme_id):
+@bp.route('/deleteJogo/<jogo_id>') # rota que realiza de fato a deleção do jogo selecionado e mostra o html de sucesso
+def delete_confirmed(jogo_id):
 
-  jogo = Jogos.read_single(filme_id)
+  jogo = Jogos.read_single(jogo_id)
 
   if jogo:
     jogo.delete()
