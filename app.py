@@ -15,7 +15,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class Jogos(db.Model):
-  id = db.Column(db.Integer, primary_key = True)
+  jogo_id = db.Column(db.Integer, primary_key = True)
   plataforma = db.Column(db.String(255), nullable = False)
   nome_jogo = db.Column(db.String(255), nullable = False)
   genero = db.Column(db.String(255), nullable = False)
@@ -31,19 +31,19 @@ class Jogos(db.Model):
   def todos_playstation():
     # SELECT * from filmes order by id asc;
     #return Jogos.query.order_by(Jogos.id.asc()).all()
-    return Jogos.query.where(Jogos.plataforma == "Playstation") # vai selecionar somete da plataforma playstation
+    return Jogos.query.where(Jogos.plataforma.in_(["Playstation",''])) # vai selecionar somete da plataforma playstation
 
   @staticmethod 
   def todos_xbox():
     # SELECT * from filmes order by id asc;
     #return Jogos.query.order_by(Jogos.id.asc()).all()
-    return Jogos.query.where(Jogos.plataforma in ('', 'Xbox')) # vai selecionar somete da plataforma playstation
+    return Jogos.query.where(Jogos.plataforma.in_(['', 'Xbox'])) # vai selecionar somete da plataforma playstation
 
   @staticmethod 
   def todos_switch():
     # SELECT * from filmes order by id asc;
     #return Jogos.query.order_by(Jogos.id.asc()).all()
-    return Jogos.query.where(Jogos.plataforma in ('', 'Nintendo Switch')) # vai selecionar somete da plataforma playstation
+    return Jogos.query.where(Jogos.plataforma.in_(['', 'Nintendo Switch'])) # vai selecionar somete da plataforma playstation
 
 
   @staticmethod
@@ -68,16 +68,10 @@ class Jogos(db.Model):
     db.session.delete(self) # estamos removendo as infomações de um jogo do banco de dados
     db.session.commit()
 
-
-  
-
-
-
 # essa é nossa rota home 
 @bp.route('/')
 def home():
     return render_template("index.html")
-
 
 # quando entrar na rota do play ele chamar a função
 @bp.route('/playstation')
@@ -86,14 +80,12 @@ def jogos_playstation():
 
   return render_template('todosJogos.html', listaJogos=jogos); # além de renderizar a o html especifico, ele tbm cria uma variavel para ser usadada no html(uma lista com os dados em questão)
 
-
 # rota do xbox
 @bp.route('/xbox')
 def jogos_xbox():
   jogos = Jogos.todos_xbox() # aqui ela vai armazenar o retorno do metodo todos_xbox que está dentro da class Jogos
 
   return render_template('todosJogos.html', listaJogos=jogos); # além de renderizar a o html especifico, ele tbm cria uma variavel para ser usadada no html(uma lista com os dados em questão)
-
 
 # roto do switch
 @bp.route('/switch')
@@ -102,7 +94,9 @@ def jogos_switch():
 
   return render_template('todosJogos.html', listaJogos=jogos); # além de renderizar a o html especifico, ele tbm cria uma variavel para ser usadada no html(uma lista com os dados em questão)
 
-
+@bp.route('/devs')
+def devs():
+  return render_template("devs.html")
 
 
 # rota de update
