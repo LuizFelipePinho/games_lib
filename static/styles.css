@@ -4,8 +4,16 @@
     display: flex;
     width: 60em ;
     justify-content: space-around;
-    background-color: darkgoldenrod;
+    margin-top: 5em;
+    
+    
 }
+
+.bloco:hover {
+    transform: scale(1.2);
+
+}
+
 
 .bloco {
     justify-content: center;
@@ -15,14 +23,7 @@
     display: flex;
     justify-content: center;
     font-size: 35px;
-    color: darkgoldenrod;
-    padding: 10px;
-    border: 6px solid;
-    border-color: darkgoldenrod;
-    border-spacing: 0;
-    margin: 0 20px 10px;
-    background-color: darkblue;
-    color: darkbl;
+    margin: 2em;
 }
 
 .imagensConsole {
@@ -31,7 +32,8 @@
 }
 
 .cabecalho {
-    background-color: rgba(204, 196, 196, 0.918);
+    background-color: #5DDCF9;
+    
     height: 6em;
     display: flex;
     justify-content: space-between;
