@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/reset.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/create.css">
+
+    <title>Adicionar Jogo</title>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="bloco">
+        <h2>Insira um Jogo</h2>
+    </div>
+
+    {% if newgame_id %}
+
+    <div class="bloco">
+        <p>Jogo inserido com sucesso!</p>
+    </div>
+        <br>
+        O código de identificação do jogo é <span class="newgame_id">{{newgame_id}}.</span>
+
+    {% else %}
+
+    <div class="bloco">
+        <form class="form" method="POST"> <!-- com o post Vamos enviar informações para o bd-->
+            
+            <div class="bloco form_input">
+                <label for="jogo_nome">Titulo: </label>
+                <input type="text" id="jogo_nome" name="titulo" value="{{jogo.nome}}"> <!-- o id do input que liga com o for da label-->
+            </div>
+
+            <div class="bloco form_input">
+                <label for="plataforma">Plataforma: </label>
+                <input type="text" id="plataforma" name="plataforma" value="{{jogo.plataforma}}"> <!-- o id do input que liga com o for da label-->
+            </div>
+
+            <div class="bloco form_input">
+                <label for="genero">Genero: </label>
+                <input type="text" id="genero" name="genero" value="{{jogo.genero}}"> <!-- o id do input que liga com o for da label-->
+            </div>
+
+            <div class="bloco form_input">
+                <label for="imagem_url">URL da imagem: </label>
+                <input type="text" id="imagem_url" name="img" value="{{jogo.imagem_url}}"> <!-- o id do input que liga com o for da label-->
+            </div>
+
+            <div class="bloco form_input">
+                <input type="submit" class="botao" value="Enviar">
+            </div>
+
+        </form>
+    
+</body>
+</html>

@@ -2,7 +2,6 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/reset.css">
     <link rel="stylesheet" href="/static/styles.css">
@@ -31,10 +30,10 @@
                 {% for jogo in listaJogos %}
                 <tr>
                     <td class="item">{{ jogo.id }}</td>
-                    <td class="item">{{jogo.titulo}}</td>
-                    <td class="item">{{jogo.plataforma}}</td>
+                    <td class="item">{{jogo.nome_jogo}}</td>
+                    <!--- <td class="item">{{jogo.plataforma}}</td> -->
                     <td class="item">{{jogo.genero}}</td>
-                    <td class="item"> <img src="{{jogo.img}}" alt="{{jogo.titulo}}" class="capaJogo"></td>
+                    <td class="item"> <img src="{{jogo.imagem_url}}" alt="{{jogo.nome_jogo}}" class="capaJogo"></td>
                     <td class="item">
                         <a href="/updateJogo/{{jogo.id}}">Alterar</a>
                         <a href="/deleteJogo/{{jogo.id}}">Deletar</a>

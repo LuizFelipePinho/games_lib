@@ -1,8 +1,20 @@
+
+
+body{
+    background-color: #b8860b;
+opacity: 1;
+background-image:  linear-gradient(135deg, #00008b 25%, transparent 25%), linear-gradient(225deg, #00008b 25%, transparent 25%), linear-gradient(45deg, #00008b 25%, transparent 25%), linear-gradient(315deg, #00008b 25%, #b8860b 25%);
+background-position:  12px 0, 12px 0, 0 0, 0 0;
+background-size: 24px 24px;
+background-repeat: repeat;
+}
+
 .container{
     margin: auto;
     display: flex;
     width: 60em ;
     justify-content: space-around;
+    background-color: darkgoldenrod;
 }
 
 .bloco {
@@ -13,10 +25,15 @@
     display: flex;
     justify-content: center;
     font-size: 35px;
-    padding: 2em;
-
+    color: darkgoldenrod;
+    padding: 10px;
+    border: 6px solid;
+    border-color: darkgoldenrod;
+    border-spacing: 0;
+    margin: 0 20px 10px;
+    background-color: darkblue;
+    color: darkbl;
 }
-
 
 .imagensConsole {
     width: 200px;
@@ -36,9 +53,7 @@
 
 .cabecalho ul {
     font-size: 18px;
-    display: flex;
-
-    
+    display: flex;  
 }
 
 .cabecalho ul li {
@@ -48,8 +63,6 @@
 a {
     text-decoration: none;
 }
-
-
 
 .tabela {
     border: black 2px solid;
@@ -64,7 +77,6 @@ a {
     height: 2em;
     text-align: center;
     font-size: 1.4em
-
 }
 
 .item{
