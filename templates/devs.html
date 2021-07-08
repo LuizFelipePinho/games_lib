@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devs</title>
+    <link rel="stylesheet" href="/static/reset.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .card {
+          box-shadow: 0 4px 8px 0 blue;
+          background-color: darkcyan;
+          max-width: 300px;
+          margin: auto;
+          text-align: center;
+          font-family: arial;
+        }
+
+        .titulo{
+          color: black;
+          font-size: 40px;
+        }
+        
+        .title{
+          color: black;
+          font-size: 20px;
+        }
+        
+        a{
+          text-decoration: none;
+          font-size: 25px;
+          color: black;
+        }
+
+        .incard{
+          font-size: 18px;
+        }
+
+        </style>
+</head>
+<body>
+    
+    {% include 'header.html' %}
+    <div class="titulo">
+        <h2 style="text-align:center">Desenvolvedores responsáveis pelo projeto</h2>
+    </div>
+    <br>
+    <br>
+    <div class="card">
+      <img src="/static/imagens/erick.jpeg" alt="Erick" style="width:100%">
+      <span class="incard"><h1>Erick Alan da Silva</h1></span>
+      <p class="title">Futuro desenvolvedor front-end</p>
+      <span class="incard"><p>Blue EdTech University</p></span>
+      <div style="margin: 24px 0;">
+        <a href="https://twitter.com/Erick_AlandS"><i class="fa fa-twitter"></i></a>  
+        <a href="https://www.linkedin.com/in/erick-alan-da-silva/"><i class="fa fa-linkedin"></i></a>  
+        <a href="https://www.facebook.com/erick.alandasilva/"><i class="fa fa-facebook"></i></a> 
+      </div>
+    </div>
+
+</body>
+</html>
