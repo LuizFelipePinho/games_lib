@@ -1,0 +1,27 @@
+.card {
+  box-shadow: 0 4px 8px 0 blue;
+  background-color: darkcyan;
+  max-width: 350px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.titulo{
+  color: black;
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+
+
+
+
+.incard{
+  font-size: 18px;
+}
+
+.container {
+    display: flex;
+    margin-bottom: 100px;
+}

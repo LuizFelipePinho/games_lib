@@ -36,19 +36,22 @@ background-size: 75px 75px, 75px 75px, 37.5px 37.5px, 37.5px 37.5px;
 
 }
 
-
 .bloco {
-    justify-content: center;
+    text-align: center;
 }
 
-.subtitulo {
-    display: flex;
-    justify-content: center;
-    font-size: 35px;
-    margin: 2em;
-    color: blue
-    
+.form_input{
+    text-align: center;
+    padding: 5px;
+
 }
+
+.form_input input {
+    margin-left: 100px;
+}
+
+
+
 
 .imagensConsole {
     width: 200px;

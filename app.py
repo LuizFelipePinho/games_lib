@@ -139,6 +139,16 @@ def create():
         #id_atribuido = jogo.id
     return render_template('create.html')
 
+
+
+
+@bp.route('/desenvolvedores')
+def dev():
+  return render_template('devs.html')
+
+
+
+
 app.register_blueprint(bp)
 
 if __name__ == "__main__":
