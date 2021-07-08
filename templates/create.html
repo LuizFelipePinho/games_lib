@@ -31,28 +31,28 @@
             
             <div class="bloco form_input">
                 <label for="jogo_nome">Titulo: </label>
-                <input type="text" id="jogo_nome" name="titulo" value="{{jogo.nome}}"> <!-- o id do input que liga com o for da label-->
+                <input type="text" id="jogo_nome" name="titulo" required> <!-- o id do input que liga com o for da label-->
             </div>
 
             <div class="bloco form_input">
                 <label for="plataforma">Plataforma: </label>
-                <input type="text" id="plataforma" name="plataforma" value="{{jogo.plataforma}}"> <!-- o id do input que liga com o for da label-->
+                <input type="text" id="plataforma" name="plataforma" required> <!-- o id do input que liga com o for da label-->
             </div>
 
             <div class="bloco form_input">
                 <label for="genero">Genero: </label>
-                <input type="text" id="genero" name="genero" value="{{jogo.genero}}"> <!-- o id do input que liga com o for da label-->
+                <input type="text" id="genero" name="genero" required> <!-- o id do input que liga com o for da label-->
             </div>
 
             <div class="bloco form_input">
                 <label for="imagem_url">URL da imagem: </label>
-                <input type="text" id="imagem_url" name="img" value="{{jogo.imagem_url}}"> <!-- o id do input que liga com o for da label-->
+                <input type="text" id="imagem_url" name="img" required> <!-- o id do input que liga com o for da label-->
             </div>
 
             <div class="bloco form_input">
                 <input type="submit" class="botao" value="Enviar">
             </div>
-
+    {% endif %}
         </form>
     
 </body>
