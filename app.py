@@ -4,10 +4,10 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 bp = Blueprint('app', __name__)
 
-user= 'okkmzdmn'
-password= 'ZvFIeK9-lrRFH22s3WohwW9oDvlCPV5Q'
+user= 'fnmuduqr'
+password= 'nNTHlOm-oPbeZKy71sw0mS2Sj_suCD52'
 host= 'tuffi.db.elephantsql.com'
-database= 'okkmzdmn'
+database= 'fnmuduqr'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{user}:{password}@{host}/{database}' 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
