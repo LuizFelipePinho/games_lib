@@ -132,7 +132,7 @@ def create():
 #Como o método utilizado no formulário é POST, pegamos os valores dos campos
     if request.method == 'POST':
         form = request.form
-        jogo = Jogos(form['nome_jogo'], form['plataforma'], form['genero'], form['imagem_url'])
+        jogo = Jogos(form['titulo'], form['plataforma'], form['genero'], form['imagem_url'])
 
         jogo.save()
 
