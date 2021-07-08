@@ -4,10 +4,10 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 bp = Blueprint('app', __name__)
 
-user= 'okkmzdmn'
-password= 'ZvFIeK9-lrRFH22s3WohwW9oDvlCPV5Q'
+user= 'fnmuduqr'
+password= 'nNTHlOm-oPbeZKy71sw0mS2Sj_suCD52'
 host= 'tuffi.db.elephantsql.com'
-database= 'okkmzdmn'
+database= 'fnmuduqr'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{user}:{password}@{host}/{database}' 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -59,10 +59,10 @@ class Jogos(db.Model):
     db.session.commit()
 
   def update(self, new_data):
-    self.titulo = new_data.titulo
+    self.nome_jogo = new_data.nome_jogo
     self.plataforma = new_data.plataforma
     self.genero = new_data.genero
-    self.img = new_data.img
+    self.imagem_url = new_data.imagem_url
     self.save()
 
   def delete(self):
@@ -107,7 +107,7 @@ def update(jogo_id):
 
   if request.method == 'POST':
     form = request.form
-    new_data = Jogos(form['titulo'], form['plataforma'], form['genero'], form['img'])
+    new_data = Jogos(form['nome_jogo'], form['plataforma'], form['genero'], form['imagem_url'])
     
     jogo.update(new_data)
 
@@ -132,12 +132,22 @@ def create():
 #Como o método utilizado no formulário é POST, pegamos os valores dos campos
     if request.method == 'POST':
         form = request.form
-        jogo = Jogos(form['titulo'], form['plataforma'], form['genero'], form['imagem_url'])
+        jogo = Jogos(form['nome_jogo'], form['plataforma'], form['genero'], form['imagem_url'])
 
         jogo.save()
 
         #id_atribuido = jogo.id
     return render_template('create.html')
+
+
+
+
+@bp.route('/desenvolvedores')
+def dev():
+  return render_template('devs.html')
+
+
+
 
 app.register_blueprint(bp)
 
