@@ -15,8 +15,24 @@ background-size: 75px 75px, 75px 75px, 37.5px 37.5px, 37.5px 37.5px;
     
 }
 
-.bloco:hover {
+.itemImg:hover {
     transform: scale(1.2);
+
+}
+
+.botaoAdicionarJogo {
+    text-align: center;
+    margin: 1em;
+}
+
+
+
+.botaoAdicionarJogo button {
+    padding: 2em;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #3359EC;
 
 }
 

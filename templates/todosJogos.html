@@ -11,6 +11,7 @@
 <body>
 
    {% include 'header.html' %} 
+    
 
         <table class="tabela">
             <tr class="headerTabela">
@@ -37,6 +38,8 @@
                     <td class="item">
                         <a href="/updateJogo/{{jogo.jogo_id}}">Alterar</a>
                         <a href="/deleteJogo/{{jogo.jogo_id}}">Deletar</a>
+
+
                     </td>
                     
 
@@ -53,6 +56,13 @@
             </tbody>
             
         </table>
+
+        <div class="botaoAdicionarJogo"> 
+            <button>
+            <a href="/create"> Adicionar jogo 
+            </a>
+        </button>
+        </div>
 
      
     

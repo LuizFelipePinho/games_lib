@@ -21,8 +21,7 @@ class Jogos(db.Model):
   genero = db.Column(db.String(255), nullable = False)
   imagem_url = db.Column(db.String(255), nullable = False)
 
-  def __init__(self, jogo_id, nome_jogo, plataforma, genero, imagem_url):
-    self.jogo_id = jogo_id
+  def __init__(self, nome_jogo, plataforma, genero, imagem_url):
     self.nome_jogo = nome_jogo
     self.plataforma = plataforma
     self.genero = genero
@@ -32,6 +31,7 @@ class Jogos(db.Model):
   def todos_playstation():
     # SELECT * from filmes order by id asc;
     #return Jogos.query.order_by(Jogos.id.asc()).all()
+    #return Jogos.query.where(Jogos.plataforma == "Playstation")
     return Jogos.query.where(Jogos.plataforma.in_(["Playstation",''])) # vai selecionar somete da plataforma playstation
 
   @staticmethod 
@@ -132,10 +132,12 @@ def create():
 #Como o método utilizado no formulário é POST, pegamos os valores dos campos
     if request.method == 'POST':
         form = request.form
-        jogos = Jogos(form['jogo_nome'], form['imagem_url'])
-        jogos.save()
-        id_atribuido=jogos.id
-    return render_template('create.html', id_atribuido=id_atribuido)
+        jogo = Jogos(form['titulo'], form['plataforma'], form['genero'], form['imagem_url'])
+
+        jogo.save()
+
+        #id_atribuido = jogo.id
+    return render_template('create.html')
 
 app.register_blueprint(bp)
 
