@@ -100,10 +100,10 @@ def devs():
   return render_template("devs.html")
 
 # rota de update
-@bp.route('/updateJogo/<id_jogo>', methods=('GET', 'POST'))
-def update(id_jogo):
+@bp.route('/updateJogo/<jogo_id>', methods=('GET', 'POST'))
+def update(jogo_id):
   sucesso = None
-  jogo = Jogos.read_single(id_jogo) # aqui n pode ser um, tem q arrumar alguma forma para o usuario conseguir selecionar o jogo q ele quer editar
+  jogo = Jogos.read_single(jogo_id) # aqui n pode ser um, tem q arrumar alguma forma para o usuario conseguir selecionar o jogo q ele quer editar
 
   if request.method == 'POST':
     form = request.form
@@ -112,7 +112,6 @@ def update(id_jogo):
     jogo.update(new_data)
 
     sucesso = True
-
   return render_template('updateJogo.html', jogo = jogo, sucesso = sucesso ) 
 
 #rota do delete (deletar)
