@@ -128,7 +128,7 @@ def delete_confirmed(jogo_id):
 
 @bp.route('/create', methods=('GET', 'POST'))
 def create():
-    id_atribuido = None
+    newgame_id = None
 #Como o método utilizado no formulário é POST, pegamos os valores dos campos
     if request.method == 'POST':
         form = request.form
@@ -136,8 +136,8 @@ def create():
 
         jogo.save()
 
-        #id_atribuido = jogo.id
-    return render_template('create.html')
+        newgame_id = True
+    return render_template('create.html', newgame_id = newgame_id)
 
 
 
