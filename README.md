@@ -1,2 +1,2 @@
 # games_lib
-Trabalho final do módulo 2
+Projeto criado usando HTML, CSS, Python 3 com Flask e banco de dados Postsgres
